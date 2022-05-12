@@ -17,7 +17,7 @@ function reducer(state, action) {
     case 'decrement':
       return { count: state.count - 1, currentColor: colors.red };
     case 'reset':
-      return { count: state.count, currentColor: colors.yellow };
+      return { count: (state.count = 0), currentColor: colors.yellow };
     case 'zero':
       return { count: state.count, currentColor: colors.yellow };
     case 'positive':
@@ -51,6 +51,8 @@ export default function Counter() {
   // we are calling dispatch and teh action would be zero if count equals zero. A better way or sayign that is that if the count is zero, we are calling dispatch, replacing the new state with the action or zero??
 
   // updated the return count on the header to state.count because we are only returning updated state
+
+  // we added state to the objects that we are changing, the count and the current color. What is a better way to say this? Tired of sounding tipsy
   return (
     <main className={styles.main}>
       <h1 style={{ color: state.currentColor }}>{state.count}</h1>
